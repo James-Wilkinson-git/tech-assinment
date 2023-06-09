@@ -1,13 +1,31 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { Provider } from "react-redux";
+import store from "./redux/store";
+const theme = createTheme({
+  palette: {
+    mode: "light",
+    primary: {
+      main: "#d81e05",
+    },
+    secondary: {
+      main: "#333333",
+      contrastText: "#d81e05",
+    },
+  },
+});
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <App />
+      </ThemeProvider>
+    </Provider>
   </React.StrictMode>
 );
 
