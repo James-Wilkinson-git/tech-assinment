@@ -27,13 +27,18 @@ function App() {
         </Toolbar>
       </AppBar>
       <Container maxWidth="lg">
-        <Grid container spacing={2} disableEqualOverflow>
+        <Grid
+          container
+          spacing={2}
+          disableEqualOverflow
+          data-testid="accounts-component"
+        >
           <Grid xs={12}>
             <Item>
               <Accounts />
             </Item>
           </Grid>
-          <Grid xs={12}>
+          <Grid xs={12} data-testid="documents-component">
             <Item>
               <Documents />
             </Item>
