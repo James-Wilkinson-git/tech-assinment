@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import MenuItem from "@mui/material/MenuItem";
 import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
@@ -12,9 +11,7 @@ export const Accounts = function Accounts() {
   const { selectedAccount } = useSelector((state) => state.account);
   //Setup actions
   const dispatch = useDispatch();
-  const [account, setAccount] = useState(
-    "NrjT8DvwYNWu3lJjUBDvw3TKqIkSHo3FNO3IfP3nH4Y="
-  );
+
   const handleChange = (event) => {
     dispatch(changeAccount(event.target.value));
   };

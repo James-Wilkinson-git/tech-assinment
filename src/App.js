@@ -8,6 +8,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 
 import { Accounts } from "./components/Accounts";
+import { Documents } from "./components/Documents";
 
 import "./App.css";
 
@@ -33,7 +34,9 @@ function App() {
             </Item>
           </Grid>
           <Grid xs={12}>
-            <Item>Table Component</Item>
+            <Item>
+              <Documents />
+            </Item>
           </Grid>
         </Grid>
       </Container>
