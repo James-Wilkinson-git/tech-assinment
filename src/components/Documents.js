@@ -18,16 +18,13 @@ export const Documents = () => {
     });
     setDocuments(docs[0].docs);
   }, [selectedAccount]);
-  const sortTable = () => {
-    const sortedDocs = documents.sort(function (a, b) {
+  const sortTable = (isAscending) => {
+    const sortedDocs = [...documents].sort((a, b) => {
       let x = a["document_type"];
       let y = b["document_type"];
-      return x < y ? -1 : x > y ? 1 : 0;
+      return isAscending ? x.localeCompare(y) : y.localeCompare(x);
     });
-    console.log(sortedDocs);
-    setDocuments(() => {
-      return sortedDocs;
-    });
+    setDocuments(sortedDocs);
   };
 
   return (
@@ -36,9 +33,16 @@ export const Documents = () => {
         <Button
           variant="contained"
           color="secondary"
-          onClick={() => sortTable()}
+          onClick={() => sortTable(true)}
         >
-          Sort Document Type
+          Sort Document Type (ASC)
+        </Button>
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={() => sortTable(false)}
+        >
+          Sort Document Type ( DESC)
         </Button>
       </div>
       <TableContainer>
